@@ -1,0 +1,295 @@
+% Tipo de documento
+\documentclass{article}
+
+% Título del proyecto
+\title{Tutorial \LaTeX}
+
+% Listado de paquetes
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel} 
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+\usepackage{tocbibind}
+\usepackage{subfig}
+\usepackage{anysize}
+\usepackage{titlesec}
+\usepackage{eurosym}
+\usepackage{amsmath}
+\usepackage{parskip}
+%\usepackege{tabulary}
+\usepackage{graphicx}
+\usepackage{todonotes}
+%\usepackage{natbib}
+\usepackage{url}
+\usepackage{hyperref}	% This is to create hyperlinks within the document. 
+\usepackage{sectsty}
+
+% Colores de marca UMA https://www.uma.es/servicio-comunicacion/info/1946/marcas-oficiales/?set_language=es
+\definecolor{uma_blue_dark}{RGB}{0,46,93}
+\definecolor{uma_blue_light}{RGB}{43,145,208}
+\definecolor{uma_blue_water}{RGB}{0,174,199}
+\definecolor{uma_gray_light}{RGB}{136,139,141}
+\definecolor{uma_gray_dark}{RGB}{99,102,106}
+\definecolor{uma_purple}{RGB}{88,39,135}
+\definecolor{uma_pink}{RGB}{204,0,102}
+\definecolor{uma_green}{RGB}{121,193,70}
+\definecolor{uma_yellow}{RGB}{255,233,84}
+
+\allsectionsfont{\sffamily \color{uma_blue_dark}}
+
+
+% Para escribir trozos de código
+\usepackage{color}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+\usepackage{listings}
+\lstset{ frame=Ltb,
+framerule=0pt,
+aboveskip=0.5cm,
+framextopmargin=3pt,
+framexbottommargin=3pt,
+framexleftmargin=0.4cm,
+framesep=0pt,
+rulesep=.4pt,
+backgroundcolor=\color{gray97},
+rulesepcolor=\color{black},
+%
+stringstyle=\ttfamily,
+showstringspaces = false,
+basicstyle=\small\ttfamily,
+commentstyle=\color{gray45},
+keywordstyle=\bfseries,
+%
+numbers=left,
+numbersep=15pt,
+numberstyle=\tiny,
+numberfirstline = false,
+breaklines=true,
+}
+
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+{\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+
+\lstdefinestyle{consola}
+{basicstyle=\scriptsize\bf\ttfamily,
+backgroundcolor=\color{gray75},
+}
+
+\lstdefinestyle{C}
+{language=C,
+}
+
+\usepackage[paper=a4paper,left=30mm,right=25mm,top=30mm,bottom=25mm]{geometry}
+\footskip=40pt
+    \newenvironment{dedication}
+																{\clearpage           % we want a new page
+																 \thispagestyle{empty}% no header and footer
+																 \vspace*{\stretch{1}}% some space at the top 
+																 \itshape             % the text is in italics
+																 \raggedleft          % flush to the right margin
+																}
+																{\par % end the paragraph
+																 \vspace{\stretch{3}} % space at bottom is three times that at the top
+																 \clearpage           % finish off the page
+																}	
+																
+\setcounter{secnumdepth}{3} 
+\setlength{\parindent}{4mm}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%							EMPIEZA EL DOCUMENTO		
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%
+
+\input{Auxiliar/portada.tex}
+\clearpage
+
+
+
+
+\tableofcontents
+\listoffigures
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  ENCABEZADO Y PIE DE PÁGINA
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% aqui definimos el encabezado de las paginas pares e impares.
+\lhead[x1]{Nombre Práctica}
+\chead[y1]{Asignatura}
+\rhead[z1]{Tema}
+\renewcommand{\headrulewidth}{0.5pt}
+
+%aqui definimos el pie de pagina de las paginas pares e impares.
+\lfoot[a1]{Juan Manuel Gandarias}
+\cfoot[c1]{}
+\rfoot[e1]{\thepage}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% aqui definimos el encabezado y pie de pagina de la pagina inicial de un capitulo.
+%\fancypagestyle{plain}{
+%\fancyhead[L]{K1}
+%\fancyhead[C]{K2}
+%\fancyhead[R]{K3}
+%\fancyfoot[L]{L1}
+%\fancyfoot[C]{L2}
+%\fancyfoot[R]{L3}
+%\renewcommand{\headrulewidth}{0.5pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+%}
+\pagestyle{fancy} 
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%							MEMORIA
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[hbtp]
+    \centering
+	\includegraphics[width = 0.5\textwidth]{Images/logo_uma.pdf}
+    \caption{Nombre de la imagen. El número se pone sólo ;)}
+    \label{fig:prueba de otra imagen}
+\end{figure}
+
+%chapter
+\chapter{Nombre capítulo}
+Se puede utilizar chapter para hacer capítulos. Pero sólo funciona con determinadas clases de documento (\textit{documentclass} al principio de este No es común utilizarlo a no ser que el documento sea muy grande. Por ejemplo, para una tesis doctoral. Para escribir memorias de prácticas o, incluso, memorias de TFG (y, si me apuras, también TFM), lo desaconsejo. Con las secciones, subsecciones y subsubsecciones es más que suficiente
+
+%seccion
+\section{Esto es una sección}
+\label{sec:seccion1}
+%texto
+Aquí puedes escribir lo que tú quieras.
+
+%Nuevo párrafo
+Automáticamente, si haces un salto de línea, aparece un nuevo párrafo, con su sangría, no hay que hacer nada, sólo escribir.
+
+\subsection{Esto es una subsección}
+Aquí también se puede escribir.
+
+Si miras el índice, aparece automáticamente, prueba a descomentar la siguiente subsección:
+
+%\subsection{Aparece en el índice automáticamente}
+
+%nueva página
+Hay dos formas, que yo sepa, para empezar en una nueva página
+\newpage
+y \textit{clearpage} (habría que poner la barra delante)
+
+\subsubsection{Esto es una subsubsección}
+Y aquí, obviamente, también puedo escribir.
+
+\paragraph{Esto seria una subsubsubseccion, que en realidad se llama paragraph}
+
+
+Si te fijas, da igual cuantos espacios       haya en la edición, o cuantos saltos de línea, \LaTeX \ sólo entiende que hay uno, si quieres meter más, hay comandos especiales que lo hacen:
+
+Doble salto de línea:\\ \\
+
+
+Hola
+
+
+Doble  \ \  espacio \\ \\ \\ \\
+
+
+Así se mete una lista:
+
+\begin{itemize}
+	\item Primer elemento de la lista
+    \item Segundo elemento de la lista \\ \\ 
+\end{itemize}
+
+Así una lista, cambiado los iconos: (hay muchos y muchas formas distintas de meterlo, en internet hay muchas referencias)
+\begin{itemize}
+	\item[-] Primer elemento de la lista
+    \item[·] Segundo elemento de la lista \\ \\ 
+\end{itemize}
+
+Así se mete una lista enumerada. No tienes que enumerarlos tú, se enumeran solos por orden
+\begin{enumerate}
+	\item Primer elemento de la lista
+    \item Segundo elemento de la lista \\ \\  
+\end{enumerate}
+
+
+Si quieres escribir en \textbf{negrita}, se usa ese comando, para no tener que escribirlo siempre, te aconsejo que utilices el atajo de teclado: $ctrl+b$
+
+Lo mismo para \textit{cursiva} (en \LaTeX \ se llama itálicas) $ctrl+i$
+
+El código entre símbolos del dólar sirve para meter ecuaciones, o cualquier cosa que aparezca en ecuaciones, como el símbolo $ + $. Si quieres meter una ecuación centrada, se puede hacer de dos formas:
+
+$$
+F_{1}^2 = m^{2} a_{1}^{2}
+$$
+
+\begin{equation}
+F = ma
+\end{equation}
+
+Si quieres citar una parte del texto simplemente tienes que poner, por ejemplo: \ref{sec:seccion1} Dándole el nombre que quieras. O a una figura \ref{fig:nombre para referenciar la imagen}.
+
+
+\newpage
+Así se mete una imagen
+\begin{figure}[hbtp]
+    \centering
+	\includegraphics[width = 0.5\textwidth]{Images/logo_eii.pdf}
+    \caption{Nombre de la imagen. El número se pone sólo ;)}
+    \label{fig:nombre para referenciar la imagen}
+\end{figure}
+
+
+Ya solo queda meter una tabla, que se hace así, como se ve en la tabla (\ref{tabla:sencilla}):
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+País & Ciudad \\
+\hline \hline
+España & Madrid \\ \hline
+España & Sevilla \\ \hline
+Francia & París \\ \hline
+\end{tabular}
+\caption{Tabla muy sencilla.}
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+
+Así se mete un link: \url{http://minisconlatex.blogspot.com.es/2010/11/tablas.html}. Por cierto, te aconsejo esa página. Viene un montón de ayuda. Y siempre siempre siempre, si pones en google: ¿Cómo hacer... en látex? lo vas a encontrar. Ésta otra página también es buena, yo aprendí con ella \url{http://elclubdelautodidacta.es/wp/indice-latex/}
+
+
+\newpage
+
+\section{Bibliografía}
+
+Para añadir referencias bibliográficas, lo más cómodo es utilizar 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\end{document}
