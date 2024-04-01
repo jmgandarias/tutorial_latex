@@ -22,6 +22,7 @@
 \usepackage{amsmath}
 \usepackage{parskip}
 %\usepackege{tabulary}
+\usepackage{cite}
 \usepackage{graphicx}
 \usepackage{todonotes}
 %\usepackage{natbib}
@@ -41,6 +42,15 @@
 \definecolor{uma_yellow}{RGB}{255,233,84}
 
 \allsectionsfont{\sffamily \color{uma_blue_dark}}
+
+% Enable colored hyperlinks
+\hypersetup{
+    colorlinks=true,
+    citecolor=uma_pink,
+    linkcolor=uma_blue_light,
+    filecolor=uma_blue_water,      
+    urlcolor=uma_blue_light
+}
 
 
 % Para escribir trozos de código
@@ -134,14 +144,14 @@ backgroundcolor=\color{gray75},
 
 
 % aqui definimos el encabezado de las paginas pares e impares.
-\lhead[x1]{Nombre Práctica}
-\chead[y1]{Asignatura}
-\rhead[z1]{Tema}
+\lhead[x1]{Encabezado izq}
+\chead[y1]{Encabezado centro}
+\rhead[z1]{Encabezado der}
 \renewcommand{\headrulewidth}{0.5pt}
 
 %aqui definimos el pie de pagina de las paginas pares e impares.
-\lfoot[a1]{Juan Manuel Gandarias}
-\cfoot[c1]{}
+\lfoot[a1]{Pie izq}
+\cfoot[c1]{Pie centro}
 \rfoot[e1]{\thepage}
 \renewcommand{\footrulewidth}{0.5pt}
 
@@ -172,9 +182,6 @@ backgroundcolor=\color{gray75},
     \label{fig:prueba de otra imagen}
 \end{figure}
 
-%chapter
-\chapter{Nombre capítulo}
-Se puede utilizar chapter para hacer capítulos. Pero sólo funciona con determinadas clases de documento (\textit{documentclass} al principio de este No es común utilizarlo a no ser que el documento sea muy grande. Por ejemplo, para una tesis doctoral. Para escribir memorias de prácticas o, incluso, memorias de TFG (y, si me apuras, también TFM), lo desaconsejo. Con las secciones, subsecciones y subsubsecciones es más que suficiente
 
 %seccion
 \section{Esto es una sección}
@@ -213,7 +220,12 @@ Hola
 
 Doble  \ \  espacio \\ \\ \\ \\
 
+%chapter
+\section{Capítulos}
+\chapter{Nombre capítulo}
+Se puede utilizar chapter para hacer capítulos. Pero sólo funciona con determinadas clases de documento (\textit{documentclass} al principio de este No es común utilizarlo a no ser que el documento sea muy grande. Por ejemplo, para una tesis doctoral. Para escribir memorias de prácticas o, incluso, memorias de TFG (y, si me apuras, también TFM), lo desaconsejo. Con las secciones, subsecciones y subsubsecciones es más que suficiente
 
+\section{Listas}
 Así se mete una lista:
 
 \begin{itemize}
@@ -233,11 +245,12 @@ Así se mete una lista enumerada. No tienes que enumerarlos tú, se enumeran sol
     \item Segundo elemento de la lista \\ \\  
 \end{enumerate}
 
-
+\section{Negrita y Cursiva}
 Si quieres escribir en \textbf{negrita}, se usa ese comando, para no tener que escribirlo siempre, te aconsejo que utilices el atajo de teclado: $ctrl+b$
 
 Lo mismo para \textit{cursiva} (en \LaTeX \ se llama itálicas) $ctrl+i$
 
+\section{Ecuaciones}
 El código entre símbolos del dólar sirve para meter ecuaciones, o cualquier cosa que aparezca en ecuaciones, como el símbolo $ + $. Si quieres meter una ecuación centrada, se puede hacer de dos formas:
 
 $$
@@ -248,6 +261,7 @@ $$
 F = ma
 \end{equation}
 
+\section{Imágenes y Referencias}
 Si quieres citar una parte del texto simplemente tienes que poner, por ejemplo: \ref{sec:seccion1} Dándole el nombre que quieras. O a una figura \ref{fig:nombre para referenciar la imagen}.
 
 
@@ -260,7 +274,7 @@ Así se mete una imagen
     \label{fig:nombre para referenciar la imagen}
 \end{figure}
 
-
+\section{Tablas}
 Ya solo queda meter una tabla, que se hace así, como se ve en la tabla (\ref{tabla:sencilla}):
 
 \begin{table}[htbp]
@@ -278,14 +292,47 @@ Francia & París \\ \hline
 \end{center}
 \end{table}
 
-Así se mete un link: \url{http://minisconlatex.blogspot.com.es/2010/11/tablas.html}. Por cierto, te aconsejo esa página. Viene un montón de ayuda. Y siempre siempre siempre, si pones en google: ¿Cómo hacer... en látex? lo vas a encontrar. Ésta otra página también es buena, yo aprendí con ella \url{http://elclubdelautodidacta.es/wp/indice-latex/}
+\section{Enlaces}
+Así se mete un URL: \url{http://minisconlatex.blogspot.com.es/2010/11/tablas.html}. Por cierto, te aconsejo esa página. Viene un montón de ayuda. Y siempre siempre siempre, si pones en google: ¿Cómo hacer... en látex? lo vas a encontrar. También se puede utilizar el paquete hyperref: \href{http://elclubdelautodidacta.es/wp/indice-latex/}{Ésta otra página} también es buena, yo aprendí con ella 
 
 
 \newpage
 
 \section{Bibliografía}
 
-Para añadir referencias bibliográficas, lo más cómodo es utilizar 
+Para añadir referencias bibliográficas, lo más cómodo es utilizar el entorno \href{https://www.bibtex.org/}{bibtex}. A través de ese enlace también se puede encontrar info sobre cómo funciona. Para utilizarlo, hay que añadir el paquete \textit{cite}. Las referencias aparecen automáticamente cuando se citan. Y aparecen por orden de cita en el texto, que es como deberían aparece.
+
+Para ello, aconsejo utilizar siempre la plantilla que aparece en este documento: estilo IEEEtran 
+En el documento \textit{biblio.bib} se pueden introducir todas las referencias bibliográficas.
+
+Pongo varios tipos de referencia a continuación. Es importante notar que las referencias sólo aparecerán en la lista de la bibliografía si se citan correctamente en el texto. 
+
+\begin{itemize}
+    \item Aquí una referencia a un artículo de conferencia~\cite{giammarino2023open}
+    \item Aquí una referencia a un artículo de revista~\cite{arbaud2024toward}
+    \item Aquí una referencia a un capítulo de libro~\cite{pastor2020grasping}
+    \item Aquí una referencia a un libro~\cite{featherstone2014rigid}
+    \item Aquí una referencia a una página web~\cite{web_juanma}. Cuidado con las referencias a las páginas web. Los enlaces podrían dejar de funcionar en algún momento, así que se aconseja poner siempre la fecha de cuando fue consultado por última vez dicho enlace. Asimismo, se aconseja evitar poner referencias bibliográficas a páginas web a no ser que sea absolutamente necesario. Es más común citarlos a pie de página. Aquí~\footnote{\href{https://jmgandarias.com/}{Mi web}} la misma web pero citada a pie de página. En este caso queda un poco raro porque existe ya un pie de página con una línea
+\end{itemize}
+
+Otro aspecto importante es el uso de $~$ antes de utilizar el comando cite. Esto es simplemente por motivos de formato pero no es necesario. Al incluir $~$ se añade un espacio en blanco que no se puede romper en un salto de línea. Es decir, que la referencia no va a aparecer sola en la línea siguiente en ningún caso. Esto se puede (debe) utilizar también con referencias a figuras y, en general, a cualquier cosa que queramos forzar a que no haya un salto de línea
+
+\subsection{¿De dónde saco los códigos de las referencias para rellenar el .bib? ¿Tengo que hacerlos a mano?}
+
+Normalmente no. Lo más común es sacarlos de algún sitio y, luego, modificar algo si es necesario. Mi consejo es sacarlos de \href{https://scholar.google.es/}{Google Scholar}. Por ejemplo, si en Google scholar buscas el siguiente artículo \textit{``An Open Tele-Impedance Framework to Generate Data for Contact-Rich Tasks in Robotic Manipulation''}, puedes obtener el .bib como se muestra en la figura~\ref{fig:scholar}. El código se copia y se pega en biblio.bib y listo (sin olvidar citarlo en el texto, claro).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/scholar_bib.png}
+    \caption{Cómo obtener el código bibtex de una referencia}
+    \label{fig:scholar}
+\end{figure}
+
+\bibliographystyle{IEEEtran}
+\bibliography{biblio.bib} 
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
